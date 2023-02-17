@@ -2,8 +2,8 @@
 let generateBtn = document.querySelector("#generate");
 let lowercase = "qwertyuioplkjhgfdsazxcvbnm".split('');
 let uppercase = "qwertyuioplkjhgfdsazxcvbnm".toUpperCase().split('');
-let numbers = "1234567890".split();
-let specialChars = "!@#$%^&*()_+=-".split();
+let numbers = "1234567890".split('');
+let specialChars = "!@#$%^&*()_+=-".split('');
 let password = "";
 
 // Write password to the #password input
@@ -24,8 +24,20 @@ function generatePassword() {
 
   let uppercasePrompt = prompt("Do you want to include uppercase characters(Yes or No): ");
   //doing this so that I could have at least one lower case letter in password
-  if(lowercasePrompt.toLowerCase() === "yes")  {
+  if(uppercasePrompt.toLowerCase() === "yes")  {
     password.concat(generate(uppercase));
+  }
+
+  let numbersPrompt = prompt("Do you want to include numbers(Yes or No): ");
+  //doing this so that I could have at least one lower case letter in password
+  if(numbersPrompt.toLowerCase() === "yes")  {
+    password.concat(generate(numbers));
+  }
+
+  let specialcharsPrompt = prompt("Do you want to include special characters(Yes or No): ");
+  //doing this so that I could have at least one lower case letter in password
+  if(specialcharsPrompt.toLowerCase() === "yes")  {
+    password.concat(generate(specialChars));
   }
 
 }
