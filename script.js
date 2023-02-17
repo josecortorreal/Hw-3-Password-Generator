@@ -22,6 +22,12 @@ function generatePassword() {
     password.concat(generate(lowercase));
   }
 
+  let uppercasePrompt = prompt("Do you want to include uppercase characters(Yes or No): ");
+  //doing this so that I could have at least one lower case letter in password
+  if(lowercasePrompt.toLowerCase() === "yes")  {
+    password.concat(generate(uppercase));
+  }
+
 }
 
 function generate(arr) {
