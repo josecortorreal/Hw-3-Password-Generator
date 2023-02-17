@@ -16,7 +16,7 @@ let password = "";
 
 
 function generatePassword() {
-  console.log(allChars)
+  event.preventDefault();
   let length = prompt("What length do you want your password(8-128 characters): ");
   
   let lowercasePrompt = prompt("Do you want to include lowercase characters(Yes or No): ");
@@ -46,6 +46,8 @@ function generatePassword() {
   let finalPassword = completePassword(allChars, length);
   alert(finalPassword);
 
+  return finalPassword;
+
 }
 
 function generate(arr) {
@@ -66,5 +68,6 @@ function completePassword(arr, length) {
 
 // // Add event listener to generate button
 generateBtn.addEventListener("click", function() {
-  generatePassword();
+  // generatePassword();
+  passwordText.value += generatePassword();
 });
