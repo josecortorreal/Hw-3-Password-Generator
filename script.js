@@ -4,7 +4,9 @@ let lowercase = "qwertyuioplkjhgfdsazxcvbnm".split('');
 let uppercase = "qwertyuioplkjhgfdsazxcvbnm".toUpperCase().split('');
 let numbers = "1234567890".split('');
 let specialChars = "!@#$%^&*()_+=-".split('');
+let allChars = '!@#$%^&*()_+=-1234567890qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM';
 let password = "";
+
 
 // Write password to the #password input
   // let password = generatePassword(); {
@@ -14,6 +16,7 @@ let password = "";
 
 
 function generatePassword() {
+  console.log(allChars)
   let length = prompt("What length do you want your password(8-128 characters): ");
   
   let lowercasePrompt = prompt("Do you want to include lowercase characters(Yes or No): ");
@@ -40,6 +43,9 @@ function generatePassword() {
     password.concat(generate(specialChars));
   }
 
+  let finalPassword = completePassword(allChars, length);
+  alert(finalPassword);
+
 }
 
 function generate(arr) {
@@ -48,7 +54,14 @@ function generate(arr) {
 }
 
 function completePassword(arr, length) {
+  let remaining = length - password.length;
 
+  for(let i = 0; i < remaining; i++) {
+    let randomChar = arr[Math.floor(Math.random() * arr.length)];
+    password = password + randomChar;
+  }
+
+  return password;
 }
 
 // // Add event listener to generate button
